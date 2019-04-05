@@ -4,7 +4,9 @@ A node.js project for collaborative code writing like google docs
 # How to install
 
 ## first clone using 
-git clone 
+```javascript
+git clone https://github.com/viditkhemka63/Teletype-using-node.js.git 
+```
 
 ## Then
 ```javascript
