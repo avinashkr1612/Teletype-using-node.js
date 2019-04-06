@@ -4,9 +4,11 @@
     <title>Node Authentication</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
     <style>
         body        { padding-top:80px; }
     </style>
+    
 </head>
 <body>
 <div class="container">
@@ -19,7 +21,23 @@
         <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
         <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
     </div>
-
+    <div id="chat" class="jumbotron text-center">
+        <div id="chat-window" class>
+            <div id="output"></div>
+            <div id="feedback"></div>
+        </div>
+        <input type="text" id="handle" placeholder="handle">
+        <input type="text" id="message" placeholder="message">
+        <button id="send">Send</button>
+        <hr>
+        <div class="row">
+            <div class="col-8">
+                <textarea name="Text1" id="code" cols="40" rows="5"></textarea>
+                <button type="submit" id="update">Update</button>
+            </div>
+        </div>
+    </div> 
 </div>
+<script src="/chat.js"></script>
 </body>
 </html>
