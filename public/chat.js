@@ -16,13 +16,23 @@ btn.addEventListener('click',() => {
     })
 })
 
-update.addEventListener('click',() => {
-    console.log('update execute')
-    console.log(code.value);
-    socket.emit('code', {
-        message: code.value
-    })
+// update.addEventListener('click',() => {
+//     console.log('update execute')
+//     console.log(code.value);
+//     socket.emit('code', {
+//         message: code.value
+//     })
+// })
+
+
+code.addEventListener("keyup", (data) =>{
+  console.log('update execute')
+  console.log(code.value);
+  socket.emit('code', {
+      message: code.value
+  })
 })
+
 
 socket.on('code',(data) => {
     console.log(data);
