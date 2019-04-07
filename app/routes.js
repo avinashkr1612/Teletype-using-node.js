@@ -1,3 +1,6 @@
+
+var Document = require('./models/document');
+
 module.exports = function(app, passport) {
 
     app.get('/',(req, res) => {
@@ -61,6 +64,53 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
+
+    // =====================================
+    // DOCUMENT CREATE ==============================
+    // =====================================
+    app.post('/document/:id',isLoggedIn, (req,res) => {
+        console.log(req.params.id);
+        console.log(req.body);
+        // create a new document
+        var document = new Document({
+            authorId: req.params.id,
+            documentName: req.body.documentName,
+            launguage: req.body.launguage,
+            documentData: ''
+        });
+
+        document.save((err,doc) => {
+            if(err) throw err;
+
+            console.log(doc);
+            res.render('document.ejs', {document: doc});
+        });        
+    })
+
+    // =====================================
+    // DOCUMENT UPDATE =====================
+    // =====================================
+    app.post('/document/update/:id',isLoggedIn,(req, res) => {
+        console.log(req.params.id);
+        console.log(req.body);
+
+        Document.findByIdAndUpdate(req.params.id, {$set: {documentData: req.body.documentData}}, {new: true}, (err, doc) => {
+            if(err) throw err;
+
+            console.log('update data');
+            console.log(doc);
+            res.render('document.ejs', {document: doc});
+        });
+    });
+
+    app.get('/document/fetch/:id',isLoggedIn,(req,res) => {
+        Document.find({authorId: req.params.id}, (err, doc) => {
+            if(err) throw err;
+
+            console.log(doc);
+        })
+    });
+
 };
 
 // route middleware to make sure a user is logged in

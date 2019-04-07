@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+<body>
+    <h1 class="well">document page working</h1>
+    
+    <div id="chat" class="jumbotron text-center">
+        <div id="chat-window" class>
+            <div id="output"></div>
+            <div id="feedback"></div>
+        </div>
+
+        <input type="text" id="handle" placeholder="handle">
+        <input type="text" id="message" placeholder="message">
+        <button id="send">Send</button>
+        
+        <hr>
+        
+        <!-- <div class="row">
+            <div class="col-8">
+
+                
+                <button type="submit" id="update">Update</button>
+                <a href="/document/update" id="update" class="btn btn-default btn-sm">Update</a>
+            </div>
+        </div> -->
+
+        <form action="/document/update/<%= document._id %>" method="post">
+        
+            <!-- <div class="form-group">
+                <label>Document Name</label>
+                <input type="text" class="form-control" name="documentName">
+            </div> -->
+
+            <p> FileName: <strong> <%= document.documentName %> </strong></p>
+            <p> Launguage: <strong> <%= document.launguage %> </strong></p>
+            <textarea 
+                    name="documentData" 
+                    id="code" cols="40" rows="5"><%= document.documentData %></textarea>
+    
+            <button type="submit"  id="update" class="btn btn-primary btn-lg">Update</button>
+        </form>
+    </div>
+
+    <script src="/chat.js"></script>
+</body>
+</html>

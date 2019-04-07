@@ -33,6 +33,21 @@
         </div>
 
     </div>
+    
+    <form action="/document/<%= user._id %>" method="post">
+        
+        <div class="form-group">
+            <label>Document Name</label>
+            <input type="text" class="form-control" name="documentName">
+        </div>
+        <div class="form-group">
+            <label>Launguage</label>
+            <input type="text" class="form-control" name="launguage">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Create new Document </button>
+    </form>
+
 
 </div>
 </body>
