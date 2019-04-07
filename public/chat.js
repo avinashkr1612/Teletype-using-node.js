@@ -8,6 +8,10 @@ var feedback = document.getElementById('feedback');
 var update = document.getElementById('update');
 var code = document.getElementById('code')
 
+var docCode = document.getElementById('documentCode')
+var docUpdate = document.getElementById('documentUpdate')
+
+
 btn.addEventListener('click',() => {
     console.log('button clicked');
     socket.emit('chat',{
@@ -16,13 +20,9 @@ btn.addEventListener('click',() => {
     })
 })
 
-// update.addEventListener('click',() => {
-//     console.log('update execute')
-//     console.log(code.value);
-//     socket.emit('code', {
-//         message: code.value
-//     })
-// })
+docCode.addEventListener("keyup", (data) => {
+  docUpdate.click();
+})
 
 
 code.addEventListener("keyup", (data) =>{

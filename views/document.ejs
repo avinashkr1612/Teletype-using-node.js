@@ -15,7 +15,7 @@
 </head>
 <body>
     <h1 class="well">document page working</h1>
-    
+
     <div id="chat" class="jumbotron text-center">
         <div id="chat-window" class>
             <div id="output"></div>
@@ -25,20 +25,20 @@
         <input type="text" id="handle" placeholder="handle">
         <input type="text" id="message" placeholder="message">
         <button id="send">Send</button>
-        
+
         <hr>
-        
+
         <!-- <div class="row">
             <div class="col-8">
 
-                
+
                 <button type="submit" id="update">Update</button>
                 <a href="/document/update" id="update" class="btn btn-default btn-sm">Update</a>
             </div>
         </div> -->
 
         <form action="/document/update/<%= document._id %>" method="post">
-        
+
             <!-- <div class="form-group">
                 <label>Document Name</label>
                 <input type="text" class="form-control" name="documentName">
@@ -46,11 +46,11 @@
 
             <p> FileName: <strong> <%= document.documentName %> </strong></p>
             <p> Launguage: <strong> <%= document.launguage %> </strong></p>
-            <textarea 
-                    name="documentData" 
-                    id="code" cols="40" rows="5"><%= document.documentData %></textarea>
-    
-            <button type="submit"  id="update" class="btn btn-primary btn-lg">Update</button>
+            <textarea
+                    name="documentData"
+                    id="documentCode" cols="40" rows="5"><%= document.documentData %></textarea>
+
+            <button type="submit"  id="documentUpdate" class="btn btn-primary btn-lg hidden">Update</button>
         </form>
     </div>
 
